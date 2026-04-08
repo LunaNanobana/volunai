@@ -7,7 +7,12 @@ A web and mobile platform connecting volunteers, event organisers, and communiti
 
 <img width="1890" height="906" alt="image" src="https://github.com/user-attachments/assets/0d98d633-4195-404f-a7cd-9221017db6c6" />
 
-![Image 1](<img width="180" height="391" alt="image" src="https://github.com/user-attachments/assets/64b59ed8-f3e4-4b42-8ce3-f9d6c331e3fe" />) ![Image 2](<img width="173" height="377" alt="image" src="https://github.com/user-attachments/assets/389f41f2-fb8c-442f-9f2a-956900b4cd5f" />)
+
+
+<img src="[image1.png](https://github.com/user-attachments/assets/285b3e4c-3522-4ed4-9f87-576a7a15fce4)" width="30%">
+<img src="[image2.png](https://github.com/user-attachments/assets/389f41f2-fb8c-442f-9f2a-956900b4cd5f)" width="30%">
+<img src="[image3.png](https://github.com/user-attachments/assets/64b59ed8-f3e4-4b42-8ce3-f9d6c331e3fe)" width="30%">
+
 
 ---
 
