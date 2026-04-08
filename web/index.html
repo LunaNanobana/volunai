@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VolunAI — Волонтёрская платформа на базе AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a class="nav-logo" href="index.html">
+    <svg class="nav-logo-svg" viewBox="0 0 44 44">
+      <circle cx="22" cy="22" r="20" fill="none" stroke="#1B5E52" stroke-width="3"/>
+      <path d="M22 2 A20 20 0 0 0 22 42 Z" fill="#26A69A"/>
+      <path d="M22 2 A20 20 0 0 1 22 42 Z" fill="#E8622A"/>
+      <line x1="22" y1="2" x2="22" y2="42" stroke="#1B5E52" stroke-width="2.5"/>
+      <ellipse cx="17" cy="24" rx="4" ry="7" fill="white" opacity="0.85"/>
+      <ellipse cx="27" cy="21" rx="4" ry="6" fill="white" opacity="0.85"/>
+    </svg>
+    <div>
+      <div class="nav-brand">VOLUNAI</div>
+      <div class="nav-sub">together</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Главная</a></li>
+    <li><a href="pages/events.html">Мероприятия</a></li>
+    <li><a href="pages/search.html">Поиск</a></li>
+    <li><a href="pages/rating.html">Рейтинг</a></li>
+    <li><a href="pages/about.html">О нас</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn btn-outline" onclick="openModal('loginModal')">Войти</button>
+    <button class="btn btn-primary" onclick="openModal('signupModal')">Регистрация</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner container">
+    <div class="hero-text fade-up">
+      <h1>Волонтёрство с&nbsp;силой <span>искусственного интеллекта</span></h1>
+      <p>VolunAI объединяет волонтёров, организаторов и&nbsp;сообщества Казахстана. Находи мероприятия, получай баллы, меняй мир вместе с&nbsp;нами.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="openModal('signupModal')">🚀 Начать бесплатно</button>
+        <a href="pages/events.html" class="btn btn-outline btn-lg">📋 Посмотреть события</a>
+      </div>
+      <div class="hero-badges">
+        <span class="badge"><span class="badge-dot green"></span>1 200+ волонтёров онлайн</span>
+        <span class="badge"><span class="badge-dot orange"></span>350+ активных событий</span>
+        <span class="badge">🏆 AI-геймификация</span>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-up" style="animation-delay:.2s">
+      <div class="phone-wrap">
+        <!-- Floating badges -->
+        <div class="float-badge left"><span class="fb-icon">🎉</span><div><b>+50 поинтов</b><br><small>за участие</small></div></div>
+        <div class="float-badge right"><span class="fb-icon">🤖</span><div><b>VolunAI</b><br><small>онлайн</small></div></div>
+
+        <!-- Phone mockup -->
+        <div class="phone">
+          <div class="phone-bar">
+            <div class="p-logo"></div>
+            <span class="p-title">Главная</span>
+            <div class="p-icons">🏛️ 💬</div>
+          </div>
+          <div class="phone-body">
+            <p class="p-section-title">Недавние События</p>
+            <div class="p-card">
+              <div class="p-card-img" style="background:#78909C">🌊</div>
+              <div class="p-card-body">
+                <div class="p-card-title">Загрязненное озеро требует очистки!</div>
+                <div class="p-progress"><div class="p-progress-fill" style="width:60%"></div></div>
+                <div class="p-card-meta">📍 Астана, оз.Талдыколь · 14.09.2024</div>
+              </div>
+            </div>
+            <div class="p-card">
+              <div class="p-card-img" style="background:#4CAF50">🌳</div>
+              <div class="p-card-body">
+                <div class="p-card-title">Посадка деревьев в городском парке!</div>
+                <div class="p-progress"><div class="p-progress-fill" style="width:40%"></div></div>
+                <div class="p-card-meta">📍 Центральный парк, Астана</div>
+              </div>
+            </div>
+            <div class="p-card">
+              <div class="p-card-img" style="background:#8D6E63">🐾</div>
+              <div class="p-card-body">
+                <div class="p-card-title">Ищем дом для собаки!</div>
+                <div class="p-progress"><div class="p-progress-fill" style="width:0%"></div></div>
+                <div class="p-card-meta">📍 Астана · 15.09.2024</div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-nav">
+            <span class="p-nav-icon">🏠</span>
+            <span class="p-nav-icon">🔍</span>
+            <div class="p-nav-ai">🤖</div>
+            <span class="p-nav-icon">👤</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="fade-up">
+      <span class="stat-num" data-target="12500" data-suffix="+">0</span>
+      <div class="stat-lbl">Зарегистрированных волонтёров</div>
+    </div>
+    <div class="fade-up" style="animation-delay:.1s">
+      <span class="stat-num" data-target="3800" data-suffix="+">0</span>
+      <div class="stat-lbl">Завершённых мероприятий</div>
+    </div>
+    <div class="fade-up" style="animation-delay:.2s">
+      <span class="stat-num" data-target="240" data-suffix="+">0</span>
+      <div class="stat-lbl">Организаций-партнёров</div>
+    </div>
+    <div class="fade-up" style="animation-delay:.3s">
+      <span class="stat-num" data-target="95000" data-suffix="+">0</span>
+      <div class="stat-lbl">Часов волонтёрства</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>Всё что нужно волонтёру<br><span>в одном приложении</span></h2>
+      <p>VolunAI использует искусственный интеллект чтобы сделать волонтёрство проще, интереснее и эффективнее.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card fade-up">
+        <div class="feat-icon">🤖</div>
+        <h3>AI-ассистент VolunAI</h3>
+        <p>Встроенный ИИ помогает находить события, генерировать посты, проводить психологические консультации и многое другое.</p>
+      </div>
+      <div class="feat-card fade-up" style="animation-delay:.1s">
+        <div class="feat-icon">🗺️</div>
+        <h3>VolunGo — карта заданий</h3>
+        <p>Геймифицированная карта с заданиями рядом с вами. Выполняй задания, зарабатывай поинты и поднимайся в рейтинге!</p>
+      </div>
+      <div class="feat-card fade-up" style="animation-delay:.2s">
+        <div class="feat-icon">🏆</div>
+        <h3>Система наград</h3>
+        <p>Получай поинты за каждое участие. Соревнуйся в таблице лидеров и получай реальные бонусы за активность.</p>
+      </div>
+      <div class="feat-card fade-up" style="animation-delay:.3s">
+        <div class="feat-icon">📊</div>
+        <h3>Аналитика профиля</h3>
+        <p>Отслеживай свою посещаемость, часы волонтёрства, пожертвования и достижения в удобном дашборде.</p>
+      </div>
+      <div class="feat-card fade-up" style="animation-delay:.4s">
+        <div class="feat-icon">🧠</div>
+        <h3>Психологическая поддержка</h3>
+        <p>AI-психолог проводит тесты и рекомендует мероприятия по ментальному здоровью для волонтёров.</p>
+      </div>
+      <div class="feat-card fade-up" style="animation-delay:.5s">
+        <div class="feat-icon">🌐</div>
+        <h3>Сеть университетов</h3>
+        <p>Подключайся к клубам и организациям своего университета. Вместе делать добро проще!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS PREVIEW -->
+<section class="section" id="events">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>Недавние <span>события</span></h2>
+      <p>Присоединяйся к актуальным мероприятиям рядом с тобой</p>
+    </div>
+
+    <!-- Categories -->
+    <div class="cats-grid mb-20 fade-up" style="margin-bottom:32px">
+      <div class="cat-card active" data-cat="all">
+        <div class="cat-icon">🌟</div>
+        <div class="cat-label">Все</div>
+      </div>
+      <div class="cat-card" data-cat="ecology">
+        <div class="cat-icon">🌳</div>
+        <div class="cat-label">Субботники</div>
+      </div>
+      <div class="cat-card" data-cat="animals">
+        <div class="cat-icon">🐾</div>
+        <div class="cat-label">Животные</div>
+      </div>
+      <div class="cat-card" data-cat="education">
+        <div class="cat-icon">📚</div>
+        <div class="cat-label">Образование</div>
+      </div>
+      <div class="cat-card" data-cat="health">
+        <div class="cat-icon">💙</div>
+        <div class="cat-label">Здоровье</div>
+      </div>
+      <div class="cat-card" data-cat="children">
+        <div class="cat-icon">🧒</div>
+        <div class="cat-label">Детдом</div>
+      </div>
+      <div class="cat-card" data-cat="climate">
+        <div class="cat-icon">🌤️</div>
+        <div class="cat-label">Климат</div>
+      </div>
+      <div class="cat-card" data-cat="other">
+        <div class="cat-icon">➕</div>
+        <div class="cat-label">Другое</div>
+      </div>
+    </div>
+
+    <div class="events-grid">
+      <div class="event-card fade-up" data-category="ecology" onclick="location.href='pages/event-detail.html'">
+        <div class="ev-img" style="background:#78909C">
+          🌊
+          <span class="ev-tag">Субботник</span>
+        </div>
+        <div class="ev-body">
+          <div class="ev-organizer">
+            <div class="ev-avatar">E</div>
+            <span class="ev-org-name">Eco_Life</span>
+          </div>
+          <div class="ev-title">Загрязненное озеро требует очистки!</div>
+          <div class="ev-volunteers">Требуется Волонтеров — 100</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+          <div class="ev-meta">
+            <span>📍 Г.Астана, р.Нура — оз.Талдыколь</span>
+            <span>📅 14.09.2024 | 9:00–14:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card fade-up" style="animation-delay:.1s" data-category="ecology" onclick="location.href='pages/event-detail.html'">
+        <div class="ev-img" style="background:#4CAF50">
+          🌳
+          <span class="ev-tag">Субботник</span>
+        </div>
+        <div class="ev-body">
+          <div class="ev-organizer">
+            <div class="ev-avatar" style="background:var(--dark-teal)">V</div>
+            <span class="ev-org-name">VolunAI</span>
+          </div>
+          <div class="ev-title">Посадка деревьев для улучшения качества воздуха!</div>
+          <div class="ev-volunteers">Требуется Волонтеров — 60</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:42%"></div></div>
+          <div class="ev-meta">
+            <span>📍 Центральный парк, г.Астана</span>
+            <span>📅 16.07.2024 | 9:00–14:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card fade-up" style="animation-delay:.2s" data-category="animals" onclick="location.href='pages/event-detail.html'">
+        <div class="ev-img" style="background:#8D6E63">
+          🐾
+          <span class="ev-tag">Животные</span>
+        </div>
+        <div class="ev-body">
+          <div class="ev-organizer">
+            <div class="ev-avatar" style="background:#8D6E63">P</div>
+            <span class="ev-org-name">Pet.lover</span>
+          </div>
+          <div class="ev-title">Ищем Дом для Собаки!</div>
+          <div class="ev-volunteers">Требуется Волонтер — 1</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+          <div class="ev-meta">
+            <span>📍 Г.Астана, р.Есиль</span>
+            <span>📅 15.09.2024 | 12:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card fade-up" style="animation-delay:.3s" data-category="other" onclick="location.href='pages/event-detail.html'">
+        <div class="ev-img" style="background:#546E7A">
+          🌊
+          <span class="ev-tag">Помощь</span>
+        </div>
+        <div class="ev-body">
+          <div class="ev-organizer">
+            <div class="ev-avatar" style="background:var(--orange)">AI</div>
+            <span class="ev-org-name">VolunAI</span>
+          </div>
+          <div class="ev-title">Помощь людям в подтопленных зонах</div>
+          <div class="ev-volunteers">Требуется Волонтеров — 40</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:63%"></div></div>
+          <div class="ev-meta">
+            <span>📍 Павлодарская область</span>
+            <span>📅 14.09.2024 | 9:00–14:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card fade-up" style="animation-delay:.4s" data-category="education" onclick="location.href='pages/event-detail.html'">
+        <div class="ev-img" style="background:#4A148C">
+          📖
+          <span class="ev-tag">Книги</span>
+        </div>
+        <div class="ev-body">
+          <div class="ev-organizer">
+            <div class="ev-avatar" style="background:var(--orange)">AI</div>
+            <span class="ev-org-name">VolunAI</span>
+          </div>
+          <div class="ev-title">Обсуждение книги «Проект "Аве Мария"»</div>
+          <div class="ev-volunteers">Участников — 20</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
+          <div class="ev-meta">
+            <span>📍 Г.Алматы, кафе "Took"</span>
+            <span>📅 14.09.2024 | 9:00–14:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card fade-up" style="animation-delay:.5s" data-category="children" onclick="location.href='pages/event-detail.html'">
+        <div class="ev-img" style="background:#1565C0">
+          🤝
+          <span class="ev-tag">Права</span>
+        </div>
+        <div class="ev-body">
+          <div class="ev-organizer">
+            <div class="ev-avatar" style="background:#1565C0">АЖ</div>
+            <span class="ev-org-name">Астана жастары</span>
+          </div>
+          <div class="ev-title">Действия Казахстана по борьбе с торговлей детьми</div>
+          <div class="ev-volunteers">Требуется Волонтер — 45</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
+          <div class="ev-meta">
+            <span>📍 Г.Астана, р.Есиль</span>
+            <span>📅 15.09.2024 | 12:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px">
+      <a href="pages/events.html" class="btn btn-outline btn-lg">Смотреть все мероприятия →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE SHOWCASE -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="profile-showcase">
+      <div class="profile-card fade-up">
+        <div class="prof-head">
+          <div class="prof-avatar">👤</div>
+          <div>
+            <div class="prof-name">Алмас Адильбеков</div>
+            <div class="prof-handle">@almas_a · almas_adlibekov@gmail.com</div>
+            <div class="points-box">
+              <div class="points-lbl">Поинты:</div>
+              <div class="points-val">750</div>
+            </div>
+          </div>
+        </div>
+        <div class="prof-stats">
+          <div class="ps-cell">
+            <span class="ps-val">90%</span>
+            <span class="ps-lbl">Посещаемость</span>
+          </div>
+          <div class="ps-cell">
+            <span class="ps-val">81</span>
+            <span class="ps-lbl">Часов волонтёрства</span>
+          </div>
+          <div class="ps-cell">
+            <span class="ps-val">26</span>
+            <span class="ps-lbl">Ивентов</span>
+          </div>
+          <div class="ps-cell">
+            <span class="ps-val">15к ₸</span>
+            <span class="ps-lbl">Пожертвование</span>
+          </div>
+        </div>
+        <div class="prof-tags">
+          <span class="tag tag-teal">Волонтер</span>
+          <span class="tag tag-teal">Психолог</span>
+          <span class="tag tag-pink">Любитель животных</span>
+        </div>
+      </div>
+
+      <div class="profile-text fade-up" style="animation-delay:.2s">
+        <h2>Твой личный <span>профиль волонтёра</span></h2>
+        <p>Следи за своим прогрессом, достижениями и вкладом в общество. Каждое действие фиксируется и приносит тебе награды.</p>
+        <ul class="profile-features">
+          <li><span class="pf-icon">📈</span> Полная аналитика активности и посещаемости</li>
+          <li><span class="pf-icon">🏆</span> Система поинтов и достижений</li>
+          <li><span class="pf-icon">🤝</span> Клубы и организации университета</li>
+          <li><span class="pf-icon">💰</span> Учёт пожертвований и вклада</li>
+          <li><span class="pf-icon">🎯</span> Персональные теги интересов</li>
+        </ul>
+        <button class="btn btn-primary btn-lg" onclick="openModal('signupModal')">Создать профиль</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SECTION -->
+<section class="ai-section">
+  <div class="ai-inner container">
+    <div class="ai-features-list fade-up">
+      <h2 style="font-size:36px;font-weight:900;margin-bottom:8px">Познакомься<br>с <span style="color:var(--orange)">VolunAI</span></h2>
+      <p style="color:rgba(255,255,255,.65);margin-bottom:28px;font-size:15px">Твой персональный AI-ассистент в мире волонтёрства</p>
+      <div class="ai-feat">
+        <div class="ai-feat-icon">📝</div>
+        <div>
+          <h3>Генерация постов</h3>
+          <p>Загрузи фото с места событий — AI автоматически создаст описание мероприятия с нужными тегами и призывом к действию.</p>
+        </div>
+      </div>
+      <div class="ai-feat">
+        <div class="ai-feat-icon">🧠</div>
+        <div>
+          <h3>Психологическая поддержка</h3>
+          <p>AI-психолог проводит диагностику и рекомендует подходящие мероприятия для поддержки ментального здоровья.</p>
+        </div>
+      </div>
+      <div class="ai-feat">
+        <div class="ai-feat-icon">🔍</div>
+        <div>
+          <h3>Умный поиск событий</h3>
+          <p>Просто опиши что ищешь — VolunAI найдёт самые подходящие мероприятия по твоим интересам и местоположению.</p>
+        </div>
+      </div>
+      <div class="ai-feat">
+        <div class="ai-feat-icon">📰</div>
+        <div>
+          <h3>Новости и тренды</h3>
+          <p>AI мониторит новости и создаёт актуальные волонтёрские события на основе происходящего в стране.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-chat-box fade-up" style="animation-delay:.2s">
+      <div class="chat-head">
+        <div class="ai-av">🤖</div>
+        <div>
+          <div class="chat-nm">VolunAI</div>
+          <div class="chat-st">● Онлайн сейчас</div>
+        </div>
+      </div>
+      <div class="chat-msgs" id="chatMessages">
+        <div class="msg user">Пост об очистке мусора</div>
+        <div class="msg ai">Отлично! Я проанализировал изображение. Генерирую пост для публикации...</div>
+        <div class="msg ai">📋 <b>Загрязненное озеро требует очистки!</b><br><br>На данном участке выявлено загрязнение окружающей среды. Призываем волонтёров! Требуется: перчатки, мешки для мусора, лопаты. <b>Нужно 100 волонтёров.</b></div>
+        <div class="msg user">Консультация с психологом</div>
+        <div class="msg ai">Пройдите наш психологический тест:<br>1) Вы испытываете напряжение или вам не по себе?</div>
+      </div>
+      <form class="chat-inp" id="chatDemoForm">
+        <span>📎</span>
+        <input type="text" placeholder="Написать сообщение VolunAI..."/>
+        <button type="submit" class="send-btn">➤</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNGO + RATING -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>VolunGo & <span>Рейтинг</span></h2>
+      <p>Игровые механики делают волонтёрство захватывающим</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+
+      <!-- Map -->
+      <div class="fade-up">
+        <h3 style="font-size:24px;font-weight:800;color:var(--dark-teal);margin-bottom:8px">🗺️ VolunGo</h3>
+        <p style="color:var(--text-grey);margin-bottom:20px;font-size:14px">Карта заданий рядом с тобой. Собирай мусор, сажай деревья, помогай людям — и получай реальные бонусы!</p>
+        <div class="map-card">
+          <div class="map-bg">
+            <div class="map-road-h"></div>
+            <div class="map-road-v"></div>
+            <div class="map-water"></div>
+            <div class="map-park"></div>
+            <div class="map-pin" style="background:red;top:80px;left:80px">❤️</div>
+            <div class="map-pin" style="background:red;top:120px;left:160px">📍</div>
+            <div class="map-pin" style="background:orange;top:180px;right:60px">🏆</div>
+            <div class="map-pin" style="background:orange;top:140px;right:110px">🌳</div>
+            <div class="map-pin" style="background:var(--teal);bottom:100px;left:80px">👤</div>
+          </div>
+          <div class="map-task-bar">
+            <div class="task-icon">📍</div>
+            <div>
+              <strong style="font-size:13px">Задание:</strong>
+              <p style="font-size:12px;color:var(--text-grey)">Собери мусор в парке и заработай 20 поинтов</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rating -->
+      <div class="fade-up" style="animation-delay:.2s">
+        <h3 style="font-size:24px;font-weight:800;color:var(--dark-teal);margin-bottom:8px">🏆 Рейтинг</h3>
+        <p style="color:var(--text-grey);margin-bottom:20px;font-size:14px">Соревнуйся с другими волонтёрами. Топ-волонтёры получают специальные призы каждый месяц!</p>
+        <div class="rating-card">
+          <div class="rating-hd"><h3>Самые активные волонтёры</h3></div>
+          <div class="rating-tabs">
+            <div class="r-tab active">Волонтёры</div>
+            <div class="r-tab">Менторы</div>
+            <div class="r-tab">Книголюбы</div>
+          </div>
+          <div class="rating-list">
+            <div class="r-item">
+              <div class="r-rank">🥇</div>
+              <div class="r-avatar">👤</div>
+              <div class="r-name">@almas_a</div>
+              <div class="r-pts">750</div>
+            </div>
+            <div class="r-item">
+              <div class="r-rank">🥈</div>
+              <div class="r-avatar" style="background:#e91e63">👤</div>
+              <div class="r-name">@ariya_123</div>
+              <div class="r-pts">750</div>
+            </div>
+            <div class="r-item">
+              <div class="r-rank">🥉</div>
+              <div class="r-avatar" style="background:var(--orange)">👤</div>
+              <div class="r-name">@ashata2</div>
+              <div class="r-pts">750</div>
+            </div>
+            <div class="r-item" style="background:#f1f8e9">
+              <div class="r-rank" style="font-size:14px;font-weight:700;color:var(--text-grey)">4</div>
+              <div class="r-avatar" style="background:#66BB6A">👤</div>
+              <div class="r-name">@volont_5</div>
+              <div class="r-pts">750</div>
+            </div>
+            <div class="r-item">
+              <div class="r-rank" style="font-size:14px;font-weight:700;color:var(--text-grey)">5</div>
+              <div class="r-avatar" style="background:#AB47BC">👤</div>
+              <div class="r-name">@saht5a</div>
+              <div class="r-pts">750</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:16px;text-align:center">
+          <a href="pages/rating.html" class="btn btn-outline">Полный рейтинг →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Готов изменить мир? 🌍</h2>
+  <p>Присоединяйся к тысячам волонтёров Казахстана. Регистрация займёт меньше минуты!</p>
+  <div class="cta-btns">
+    <button class="btn btn-white btn-lg" onclick="openModal('signupModal')">🚀 Зарегистрироваться бесплатно</button>
+    <a href="pages/about.html" class="btn btn-ghost btn-lg">Узнать больше</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>VOLUNAI</h3>
+      <p>Волонтёрская платформа нового поколения для Казахстана. Объединяем людей, организации и ИИ для создания лучшего будущего.</p>
+      <div class="socials">
+        <div class="social-btn">📘</div>
+        <div class="social-btn">📸</div>
+        <div class="social-btn">📱</div>
+        <div class="social-btn">💬</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Платформа</h4>
+      <ul>
+        <li><a href="pages/events.html">Мероприятия</a></li>
+        <li><a href="pages/search.html">Поиск</a></li>
+        <li><a href="pages/rating.html">Рейтинг</a></li>
+        <li><a href="#">VolunGo</a></li>
+        <li><a href="#">AI-чат</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Организациям</h4>
+      <ul>
+        <li><a href="#">Регистрация орг.</a></li>
+        <li><a href="#">Создать событие</a></li>
+        <li><a href="#">Аналитика</a></li>
+        <li><a href="#">Партнёрство</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Поддержка</h4>
+      <ul>
+        <li><a href="pages/about.html">О проекте</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Контакты</a></li>
+        <li><a href="#">Политика конф.</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2024 VolunAI — Волонтёрская платформа на базе AI для Казахстана. Сделано с ❤️ командой SheCodes.
+  </div>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div class="overlay" id="loginModal">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    <h2>Войти в VolunAI</h2>
+    <div class="form-group">
+      <label>Email или имя пользователя</label>
+      <input type="text" placeholder="Email или username"/>
+    </div>
+    <div class="form-group">
+      <label>Пароль</label>
+      <input type="password" placeholder="Пароль"/>
+    </div>
+    <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="closeModal('loginModal');location.href='pages/events.html'">Войти</button>
+    <p style="text-align:center;margin-top:16px;font-size:13px;color:var(--text-grey)">
+      Нет аккаунта? <a href="#" style="color:var(--orange);font-weight:700" onclick="closeModal('loginModal');openModal('signupModal')">Зарегистрируйся</a>
+    </p>
+  </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div class="overlay" id="signupModal">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closeModal('signupModal')">✕</button>
+    <h2>Присоединиться к VolunAI</h2>
+    <div class="form-group">
+      <label>Полное имя</label>
+      <input type="text" placeholder="Ваше имя"/>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="email@example.com"/>
+    </div>
+    <div class="form-group">
+      <label>Пароль</label>
+      <input type="password" placeholder="Минимум 8 символов"/>
+    </div>
+    <div class="form-group">
+      <label>Вы являетесь:</label>
+      <select>
+        <option>Пользователь / Волонтёр</option>
+        <option>Организатор</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="closeModal('signupModal');location.href='pages/events.html'">Зарегистрироваться</button>
+    <p style="text-align:center;margin-top:16px;font-size:13px;color:var(--text-grey)">
+      Уже есть аккаунт? <a href="#" style="color:var(--orange);font-weight:700" onclick="closeModal('signupModal');openModal('loginModal')">Войти</a>
+    </p>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
