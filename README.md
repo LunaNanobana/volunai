@@ -1,5 +1,5 @@
 
-# 🌿 VolunAI — AI-Powered Volunteer Platform
+#  VolunAI — AI-Powered Volunteer Platform
 
 
 
