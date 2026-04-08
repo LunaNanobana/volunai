@@ -1,10 +1,6 @@
 # VolunAI Flutter App
 
-## Setup
 
-1. Make sure Flutter is installed: https://flutter.dev/docs/get-started/install
-2. Run `flutter pub get` to install dependencies
-3. Run `flutter run` to launch the app
 
 ## Structure
 - lib/screens/ - All app screens
