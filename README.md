@@ -93,12 +93,4 @@ flutter run
 
 ---
 
-## Screenshots
 
-| Home | Events | AI Chat | Rating |
-|------|--------|---------|--------|
-| ![home](website/assets/images/home_screen.png) | ![events](website/assets/images/add_event.png) | ![ai](website/assets/images/psychology.png) | ![rating](website/assets/images/rating.png) |
-
----
-
-*Built at SheCodes Hackathon 2026 · 1st Place*
