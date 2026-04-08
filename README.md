@@ -9,10 +9,12 @@ A web and mobile platform connecting volunteers, event organisers, and communiti
 
 
 
+
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/b2fccd0f-2118-49b3-8498-7592d52f2669" width="30%">
-  <img src="https://github.com/user-attachments/assets/389f41f2-fb8c-442f-9f2a-956900b4cd5f" width="30%">
-  <img src="https://github.com/user-attachments/assets/64b59ed8-f3e4-4b42-8ce3-f9d6c331e3fe" width="30%">
+  <img src="https://github.com/user-attachments/assets/8f9665e6-4a7f-4096-aa63-0f6d811ba319" width="30%">
+  <img src="https://github.com/user-attachments/assets/43cc19f2-9001-44e7-839c-1edf79c0b198" width="30%">
 </p>
 
 
