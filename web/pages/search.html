@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Поиск — VolunAI</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<nav class="navbar">
+  <a class="nav-logo" href="../index.html">
+    <svg class="nav-logo-svg" viewBox="0 0 44 44">
+      <circle cx="22" cy="22" r="20" fill="none" stroke="#1B5E52" stroke-width="3"/>
+      <path d="M22 2 A20 20 0 0 0 22 42 Z" fill="#26A69A"/>
+      <path d="M22 2 A20 20 0 0 1 22 42 Z" fill="#E8622A"/>
+      <line x1="22" y1="2" x2="22" y2="42" stroke="#1B5E52" stroke-width="2.5"/>
+      <ellipse cx="17" cy="24" rx="4" ry="7" fill="white" opacity="0.85"/>
+      <ellipse cx="27" cy="21" rx="4" ry="6" fill="white" opacity="0.85"/>
+    </svg>
+    <div><div class="nav-brand">VOLUNAI</div><div class="nav-sub">together</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Главная</a></li>
+    <li><a href="events.html">Мероприятия</a></li>
+    <li><a href="search.html" class="active">Поиск</a></li>
+    <li><a href="rating.html">Рейтинг</a></li>
+    <li><a href="about.html">О нас</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn btn-outline" onclick="openModal('loginModal')">Войти</button>
+    <button class="btn btn-primary">Регистрация</button>
+  </div>
+</nav>
+
+<div class="page-hd">
+  <h1>🔍 Поиск</h1>
+  <p>Ищи ивенты по названиям или фильтруй по назначению</p>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Tabs: Events / Friends / Organizations -->
+    <div style="display:flex;border-bottom:2px solid var(--divider);margin-bottom:32px" class="fade-up">
+      <button class="stab active" onclick="switchTab(this,'events')">📋 Мероприятия</button>
+      <button class="stab" onclick="switchTab(this,'friends')">👥 Друзья</button>
+      <button class="stab" onclick="switchTab(this,'orgs')">🏛️ Организации</button>
+    </div>
+
+    <style>
+      .stab{padding:12px 24px;border:none;background:none;font-size:14px;font-weight:600;cursor:pointer;color:var(--text-grey);border-bottom:3px solid transparent;font-family:inherit;transition:all .2s;margin-bottom:-2px;}
+      .stab.active{color:var(--orange);border-bottom-color:var(--orange);}
+      .tab-panel{display:none;} .tab-panel.active{display:block;}
+    </style>
+
+    <!-- Events Tab -->
+    <div class="tab-panel active" id="tab-events">
+      <!-- Search -->
+      <div style="display:flex;gap:14px;margin-bottom:28px;flex-wrap:wrap" class="fade-up">
+        <input type="text" id="evSearch" placeholder="🔍 Субботники..." oninput="liveSearch()"
+          style="flex:1;min-width:260px;padding:14px 20px;border:1.5px solid var(--divider);border-radius:30px;font-size:14px;font-family:inherit;outline:none"
+          onfocus="this.style.borderColor='var(--orange)'" onblur="this.style.borderColor='var(--divider)'"/>
+        <button class="btn btn-primary">Найти</button>
+      </div>
+
+      <!-- Categories grid -->
+      <div class="cats-grid fade-up" style="margin-bottom:36px">
+        <div class="cat-card active" onclick="selectCat(this,'')"><div class="cat-icon">🌟</div><div class="cat-label">Все</div></div>
+        <div class="cat-card" onclick="selectCat(this,'ecology')"><div class="cat-icon">🌳</div><div class="cat-label">Субботники</div></div>
+        <div class="cat-card" onclick="selectCat(this,'food')"><div class="cat-icon">🍱</div><div class="cat-label">Продукты</div></div>
+        <div class="cat-card" onclick="selectCat(this,'health')"><div class="cat-icon">💙</div><div class="cat-label">Здоровье</div></div>
+        <div class="cat-card" onclick="selectCat(this,'animals')"><div class="cat-icon">🐾</div><div class="cat-label">Животные</div></div>
+        <div class="cat-card" onclick="selectCat(this,'education')"><div class="cat-icon">🏫</div><div class="cat-label">Образование</div></div>
+        <div class="cat-card" onclick="selectCat(this,'climate')"><div class="cat-icon">🌤️</div><div class="cat-label">Климат</div></div>
+        <div class="cat-card" onclick="selectCat(this,'festival')"><div class="cat-icon">🎉</div><div class="cat-label">Фестивали</div></div>
+        <div class="cat-card" onclick="selectCat(this,'missing')"><div class="cat-icon">🔍</div><div class="cat-label">Поиски пропавших</div></div>
+        <div class="cat-card" onclick="selectCat(this,'psychology')"><div class="cat-icon">🧠</div><div class="cat-label">Психологи</div></div>
+        <div class="cat-card" onclick="selectCat(this,'books')"><div class="cat-icon">📚</div><div class="cat-label">Книги</div></div>
+        <div class="cat-card" onclick="selectCat(this,'children')"><div class="cat-icon">🏠</div><div class="cat-label">Детдом</div></div>
+      </div>
+
+      <div id="searchResults" class="events-grid">
+        <div class="event-card" data-cat="ecology" onclick="location.href='event-detail.html'">
+          <div class="ev-img" style="background:#78909C">🌊<span class="ev-tag">Субботник</span></div>
+          <div class="ev-body">
+            <div class="ev-organizer"><div class="ev-avatar">E</div><span class="ev-org-name">Eco_Life</span></div>
+            <div class="ev-title">Загрязненное озеро требует очистки!</div>
+            <div class="ev-volunteers">Требуется Волонтеров — 100</div>
+            <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+            <div class="ev-meta"><span>📍 Г.Астана, оз.Талдыколь</span></div>
+          </div>
+        </div>
+        <div class="event-card" data-cat="ecology" onclick="location.href='event-detail.html'">
+          <div class="ev-img" style="background:#4CAF50">🌳<span class="ev-tag">Субботник</span></div>
+          <div class="ev-body">
+            <div class="ev-organizer"><div class="ev-avatar" style="background:var(--dark-teal)">V</div><span class="ev-org-name">VolunAI</span></div>
+            <div class="ev-title">Необходима срочная посадка деревьев в городском парке!</div>
+            <div class="ev-volunteers">Требуется Волонтеров — 60</div>
+            <div class="progress-bar"><div class="progress-fill" style="width:42%"></div></div>
+            <div class="ev-meta"><span>📍 Центральный парк</span></div>
+          </div>
+        </div>
+        <div class="event-card" data-cat="animals" onclick="location.href='event-detail.html'">
+          <div class="ev-img" style="background:#8D6E63">🐾<span class="ev-tag">Животные</span></div>
+          <div class="ev-body">
+            <div class="ev-organizer"><div class="ev-avatar" style="background:#8D6E63">P</div><span class="ev-org-name">Pet.lover</span></div>
+            <div class="ev-title">Ищем Дом для Собаки!</div>
+            <div class="ev-volunteers">Требуется Волонтер — 1</div>
+            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+            <div class="ev-meta"><span>📍 Г.Астана</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Friends Tab -->
+    <div class="tab-panel" id="tab-friends">
+      <input type="text" placeholder="🔍 Поиск пользователей..." style="width:100%;padding:14px 20px;border:1.5px solid var(--divider);border-radius:30px;font-size:14px;font-family:inherit;outline:none;margin-bottom:24px"/>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:14px;padding:16px;background:white;border-radius:12px;box-shadow:var(--card-shadow)">
+          <div style="width:48px;height:48px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;color:white;font-size:20px">👤</div>
+          <div style="flex:1"><div style="font-weight:700">Алмас Адильбеков</div><div style="font-size:12px;color:var(--text-grey)">@almas_a · 750 поинтов</div></div>
+          <button class="btn btn-teal" style="padding:8px 16px;font-size:12px">Добавить</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px;background:white;border-radius:12px;box-shadow:var(--card-shadow)">
+          <div style="width:48px;height:48px;border-radius:50%;background:#e91e63;display:flex;align-items:center;justify-content:center;color:white;font-size:20px">👤</div>
+          <div style="flex:1"><div style="font-weight:700">Арие Жанаргуль</div><div style="font-size:12px;color:var(--text-grey)">@ariya_123 · 750 поинтов</div></div>
+          <button class="btn btn-teal" style="padding:8px 16px;font-size:12px">Добавить</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px;background:white;border-radius:12px;box-shadow:var(--card-shadow)">
+          <div style="width:48px;height:48px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;color:white;font-size:20px">👤</div>
+          <div style="flex:1"><div style="font-weight:700">Аша Токаева</div><div style="font-size:12px;color:var(--text-grey)">@ashata2 · 750 поинтов</div></div>
+          <button class="btn btn-outline" style="padding:8px 16px;font-size:12px">Следить</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Organizations Tab -->
+    <div class="tab-panel" id="tab-orgs">
+      <div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap">
+        <input type="text" placeholder="🔍 Поиск университетов..." style="flex:1;min-width:220px;padding:14px 20px;border:1.5px solid var(--divider);border-radius:30px;font-size:14px;font-family:inherit;outline:none"/>
+        <button class="btn btn-outline">📍 Место</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:16px;padding:20px;background:white;border-radius:16px;box-shadow:var(--card-shadow);cursor:pointer" onclick="openModal('orgModal')">
+          <div style="width:60px;height:60px;border-radius:10px;background:#003366;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0">NU</div>
+          <div style="flex:1">
+            <div style="font-weight:800;font-size:15px">Назарбаев Университет</div>
+            <div style="font-size:12px;color:var(--text-grey)">Организации: 356 · г.Астана</div>
+            <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+              <span style="background:#e3f2fd;color:#1565C0;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600">Volunteers Club</span>
+              <span style="background:#e3f2fd;color:#1565C0;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600">Red Crescent</span>
+              <span style="background:#e3f2fd;color:#1565C0;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600">Aiesec</span>
+              <span style="background:#e3f2fd;color:#1565C0;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600">TFQ</span>
+            </div>
+          </div>
+          <span style="font-size:20px;color:var(--text-grey)">›</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding:20px;background:white;border-radius:16px;box-shadow:var(--card-shadow);cursor:pointer" onclick="openModal('orgModal')">
+          <div style="width:60px;height:60px;border-radius:10px;background:#1B5E20;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:11px;flex-shrink:0;text-align:center">ЕНУ</div>
+          <div style="flex:1">
+            <div style="font-weight:800;font-size:15px">Евразийский Национальный Университет</div>
+            <div style="font-size:12px;color:var(--text-grey)">Организации: 87 · г.Астана</div>
+          </div>
+          <span style="font-size:20px;color:var(--text-grey)">›</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding:20px;background:white;border-radius:16px;box-shadow:var(--card-shadow);cursor:pointer">
+          <div style="width:60px;height:60px;border-radius:10px;background:#e91e63;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:11px;flex-shrink:0">КазНУ</div>
+          <div style="flex:1">
+            <div style="font-weight:800;font-size:15px">Казахский Национальный Университет</div>
+            <div style="font-size:12px;color:var(--text-grey)">Организации: 124 · г.Алматы</div>
+          </div>
+          <span style="font-size:20px;color:var(--text-grey)">›</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Org modal -->
+<div class="overlay" id="orgModal">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closeModal('orgModal')">✕</button>
+    <div style="text-align:center;margin-bottom:20px">
+      <div style="width:80px;height:80px;border-radius:16px;background:#003366;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:20px;margin:0 auto 12px">NU</div>
+      <h2 style="margin-bottom:4px">Назарбаев Университет</h2>
+      <p style="color:var(--text-grey);font-size:13px">Организации: 356 · г.Астана</p>
+    </div>
+    <p style="font-weight:700;margin-bottom:12px;color:var(--text-dark)">Список доступных организаций:</p>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
+      <div style="padding:12px 16px;background:var(--light-bg);border-radius:10px;font-size:14px;font-weight:600">Volunteers Club</div>
+      <div style="padding:12px 16px;background:var(--light-bg);border-radius:10px;font-size:14px;font-weight:600">Red Crescent</div>
+      <div style="padding:12px 16px;background:var(--light-bg);border-radius:10px;font-size:14px;font-weight:600">Aiesec</div>
+      <div style="padding:12px 16px;background:var(--light-bg);border-radius:10px;font-size:14px;font-weight:600">TFQ</div>
+    </div>
+    <button class="btn btn-primary" style="width:100%" onclick="closeModal('orgModal')">Добавиться</button>
+  </div>
+</div>
+
+<div class="overlay" id="loginModal">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    <h2>Войти</h2>
+    <div class="form-group"><label>Email</label><input type="text"/></div>
+    <div class="form-group"><label>Пароль</label><input type="password"/></div>
+    <button class="btn btn-primary" style="width:100%" onclick="closeModal('loginModal')">Войти</button>
+  </div>
+</div>
+
+<footer class="footer" style="padding:30px 40px">
+  <div class="footer-bottom" style="border:none;padding:0">© 2024 VolunAI — Сделано с ❤️ командой SheCodes.</div>
+</footer>
+<script src="../js/main.js"></script>
+<script>
+function switchTab(el, tab) {
+  document.querySelectorAll('.stab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+}
+
+let currentCat = '';
+function selectCat(el, cat) {
+  document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  currentCat = cat;
+  liveSearch();
+}
+
+function liveSearch() {
+  const q = document.getElementById('evSearch').value.toLowerCase();
+  document.querySelectorAll('#searchResults .event-card').forEach(card => {
+    const text = card.textContent.toLowerCase();
+    const catMatch = !currentCat || card.dataset.cat === currentCat;
+    card.style.display = catMatch && (!q || text.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

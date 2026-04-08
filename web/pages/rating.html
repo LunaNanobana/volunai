@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Рейтинг — VolunAI</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<nav class="navbar">
+  <a class="nav-logo" href="../index.html">
+    <svg class="nav-logo-svg" viewBox="0 0 44 44">
+      <circle cx="22" cy="22" r="20" fill="none" stroke="#1B5E52" stroke-width="3"/>
+      <path d="M22 2 A20 20 0 0 0 22 42 Z" fill="#26A69A"/>
+      <path d="M22 2 A20 20 0 0 1 22 42 Z" fill="#E8622A"/>
+      <line x1="22" y1="2" x2="22" y2="42" stroke="#1B5E52" stroke-width="2.5"/>
+      <ellipse cx="17" cy="24" rx="4" ry="7" fill="white" opacity="0.85"/>
+      <ellipse cx="27" cy="21" rx="4" ry="6" fill="white" opacity="0.85"/>
+    </svg>
+    <div><div class="nav-brand">VOLUNAI</div><div class="nav-sub">together</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Главная</a></li>
+    <li><a href="events.html">Мероприятия</a></li>
+    <li><a href="search.html">Поиск</a></li>
+    <li><a href="rating.html" class="active">Рейтинг</a></li>
+    <li><a href="about.html">О нас</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn btn-outline" onclick="openModal('loginModal')">Войти</button>
+    <button class="btn btn-primary">Регистрация</button>
+  </div>
+</nav>
+
+<div class="page-hd">
+  <h1>🏆 Рейтинг</h1>
+  <p>Самые активные участники нашей платформы</p>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Podium -->
+    <div style="display:flex;justify-content:center;align-items:flex-end;gap:24px;margin-bottom:48px" class="fade-up">
+      <!-- 2nd place -->
+      <div style="text-align:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:var(--orange);border:4px solid #C0C0C0;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;margin:0 auto 10px">👤</div>
+        <div style="font-weight:700;font-size:14px">@ariya_123</div>
+        <div style="font-size:12px;color:var(--text-grey);margin-bottom:8px">750 поинтов</div>
+        <div style="height:80px;background:#C0C0C0;border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:center;font-size:28px;width:90px">🥈</div>
+      </div>
+      <!-- 1st place -->
+      <div style="text-align:center">
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--teal);border:4px solid #FFD700;display:flex;align-items:center;justify-content:center;color:white;font-size:32px;margin:0 auto 10px;box-shadow:0 0 20px rgba(255,215,0,.5)">👤</div>
+        <div style="font-weight:800;font-size:16px">@almas_a</div>
+        <div style="font-size:13px;color:var(--orange);font-weight:700;margin-bottom:8px">750 поинтов</div>
+        <div style="height:120px;background:linear-gradient(135deg,#FFD700,#FFA000);border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:center;font-size:36px;width:110px">🥇</div>
+      </div>
+      <!-- 3rd place -->
+      <div style="text-align:center">
+        <div style="width:56px;height:56px;border-radius:50%;background:#9C27B0;border:4px solid #CD7F32;display:flex;align-items:center;justify-content:center;color:white;font-size:20px;margin:0 auto 10px">👤</div>
+        <div style="font-weight:700;font-size:14px">@ashata2</div>
+        <div style="font-size:12px;color:var(--text-grey);margin-bottom:8px">750 поинтов</div>
+        <div style="height:60px;background:#CD7F32;border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:center;font-size:24px;width:80px">🥉</div>
+      </div>
+    </div>
+
+    <!-- Full table -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px">
+      <div>
+        <h2 style="font-size:22px;font-weight:800;margin-bottom:20px;color:var(--dark-teal)">🙋 Волонтёры</h2>
+        <div class="rating-card">
+          <div class="rating-hd"><h3>Самые активные волонтёры</h3></div>
+          <div class="rating-list">
+            <div class="r-item" style="background:rgba(255,215,0,.08)">
+              <div class="r-rank" style="font-size:22px">🥇</div>
+              <div class="r-avatar">👤</div>
+              <div>
+                <div class="r-name">@almas_a</div>
+                <div style="font-size:10px;color:var(--text-grey)">almas_adlibekov@gmail.com</div>
+              </div>
+              <div class="r-pts" style="border-color:var(--orange);color:var(--orange)">750</div>
+            </div>
+            <div class="r-item">
+              <div class="r-rank" style="font-size:22px">🥈</div>
+              <div class="r-avatar" style="background:#e91e63">👤</div>
+              <div><div class="r-name">@ariya_123</div><div style="font-size:10px;color:var(--text-grey)">Астана</div></div>
+              <div class="r-pts">750</div>
+            </div>
+            <div class="r-item">
+              <div class="r-rank" style="font-size:22px">🥉</div>
+              <div class="r-avatar" style="background:var(--orange)">👤</div>
+              <div><div class="r-name">@ashata2</div><div style="font-size:10px;color:var(--text-grey)">Астана</div></div>
+              <div class="r-pts">750</div>
+            </div>
+            <div class="r-item" style="background:#f1f8e9">
+              <div class="r-rank" style="font-weight:700;color:var(--text-grey);font-size:15px">4</div>
+              <div class="r-avatar" style="background:#66BB6A">👤</div>
+              <div><div class="r-name">@volont_5</div><div style="font-size:10px;color:var(--text-grey)">Астана</div></div>
+              <div class="r-pts">748</div>
+            </div>
+            <div class="r-item">
+              <div class="r-rank" style="font-weight:700;color:var(--text-grey);font-size:15px">5</div>
+              <div class="r-avatar" style="background:#AB47BC">👤</div>
+              <div><div class="r-name">@saht5a</div><div style="font-size:10px;color:var(--text-grey)">Алматы</div></div>
+              <div class="r-pts">740</div>
+            </div>
+            <div class="r-item">
+              <div class="r-rank" style="font-weight:700;color:var(--text-grey);font-size:15px">6</div>
+              <div class="r-avatar" style="background:#26A69A">👤</div>
+              <div><div class="r-name">@dana_v</div></div>
+              <div class="r-pts">720</div>
+            </div>
+            <div class="r-item">
+              <div class="r-rank" style="font-weight:700;color:var(--text-grey);font-size:15px">7</div>
+              <div class="r-avatar" style="background:#EF5350">👤</div>
+              <div><div class="r-name">@aizat_k</div></div>
+              <div class="r-pts">710</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 style="font-size:22px;font-weight:800;margin-bottom:20px;color:var(--dark-teal)">📚 Книголюбы</h2>
+        <div class="rating-card">
+          <div class="rating-hd" style="background:linear-gradient(135deg,#4A148C,#7B1FA2)"><h3>Самые активные читатели</h3></div>
+          <div class="rating-list">
+            <div class="r-item" style="background:rgba(255,215,0,.08)">
+              <div class="r-rank" style="font-size:22px">🥇</div>
+              <div class="r-avatar" style="background:#7B1FA2">👤</div>
+              <div><div class="r-name">@book_lover1</div></div>
+              <div class="r-pts" style="border-color:#7B1FA2;color:#7B1FA2">520</div>
+            </div>
+            <div class="r-item">
+              <div class="r-rank" style="font-size:22px">🥈</div>
+              <div class="r-avatar" style="background:#9C27B0">👤</div>
+              <div><div class="r-name">@read_more_kz</div></div>
+              <div class="r-pts">490</div>
+            </div>
+            <div class="r-item">
+              <div class="r-rank" style="font-size:22px">🥉</div>
+              <div class="r-avatar" style="background:#CE93D8">👤</div>
+              <div><div class="r-name">@aibek_reads</div></div>
+              <div class="r-pts">460</div>
+            </div>
+            <div class="r-item">
+              <div class="r-rank" style="font-weight:700;color:var(--text-grey);font-size:15px">4</div>
+              <div class="r-avatar" style="background:#AB47BC">👤</div>
+              <div><div class="r-name">@literatura_kz</div></div>
+              <div class="r-pts">440</div>
+            </div>
+            <div class="r-item">
+              <div class="r-rank" style="font-weight:700;color:var(--text-grey);font-size:15px">5</div>
+              <div class="r-avatar" style="background:#E1BEE7">👤</div>
+              <div><div class="r-name">@zhanara_b</div></div>
+              <div class="r-pts">410</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:24px;background:linear-gradient(135deg,var(--orange),#f5884d);border-radius:16px;padding:24px;color:white">
+          <h3 style="font-size:16px;font-weight:800;margin-bottom:8px">💡 Как зарабатывать поинты?</h3>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:13px">
+            <li>✅ Участие в мероприятии: +50 пт</li>
+            <li>📅 Посещение 5+ событий: +100 пт</li>
+            <li>📖 Посещение книжного клуба: +30 пт</li>
+            <li>🤝 Приглашение друга: +25 пт</li>
+            <li>⭐ Отзыв о мероприятии: +10 пт</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="overlay" id="loginModal">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    <h2>Войти</h2>
+    <div class="form-group"><label>Email</label><input type="text"/></div>
+    <div class="form-group"><label>Пароль</label><input type="password"/></div>
+    <button class="btn btn-primary" style="width:100%" onclick="closeModal('loginModal')">Войти</button>
+  </div>
+</div>
+
+<footer class="footer" style="padding:30px 40px">
+  <div class="footer-bottom" style="border:none;padding:0">© 2024 VolunAI — Сделано с ❤️ командой SheCodes.</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

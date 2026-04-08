@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>О нас — VolunAI</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<nav class="navbar">
+  <a class="nav-logo" href="../index.html">
+    <svg class="nav-logo-svg" viewBox="0 0 44 44">
+      <circle cx="22" cy="22" r="20" fill="none" stroke="#1B5E52" stroke-width="3"/>
+      <path d="M22 2 A20 20 0 0 0 22 42 Z" fill="#26A69A"/>
+      <path d="M22 2 A20 20 0 0 1 22 42 Z" fill="#E8622A"/>
+      <line x1="22" y1="2" x2="22" y2="42" stroke="#1B5E52" stroke-width="2.5"/>
+      <ellipse cx="17" cy="24" rx="4" ry="7" fill="white" opacity="0.85"/>
+      <ellipse cx="27" cy="21" rx="4" ry="6" fill="white" opacity="0.85"/>
+    </svg>
+    <div><div class="nav-brand">VOLUNAI</div><div class="nav-sub">together</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Главная</a></li>
+    <li><a href="events.html">Мероприятия</a></li>
+    <li><a href="search.html">Поиск</a></li>
+    <li><a href="rating.html">Рейтинг</a></li>
+    <li><a href="about.html" class="active">О нас</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn btn-outline" onclick="openModal('loginModal')">Войти</button>
+    <button class="btn btn-primary">Регистрация</button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section style="background:linear-gradient(135deg,var(--dark-teal),var(--teal));padding:80px 40px;color:white;text-align:center">
+  <div style="max-width:700px;margin:0 auto">
+    <svg viewBox="0 0 88 88" style="width:88px;height:88px;margin:0 auto 20px;display:block">
+      <circle cx="44" cy="44" r="40" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="5"/>
+      <path d="M44 4 A40 40 0 0 0 44 84 Z" fill="rgba(255,255,255,.2)"/>
+      <path d="M44 4 A40 40 0 0 1 44 84 Z" fill="rgba(232,98,42,.5)"/>
+      <line x1="44" y1="4" x2="44" y2="84" stroke="white" stroke-width="4"/>
+      <ellipse cx="34" cy="50" rx="8" ry="14" fill="white" opacity="0.9"/>
+      <ellipse cx="54" cy="44" rx="8" ry="12" fill="white" opacity="0.9"/>
+    </svg>
+    <h1 style="font-size:48px;font-weight:900;margin-bottom:16px">О проекте <span style="color:var(--orange)">VolunAI</span></h1>
+    <p style="font-size:18px;opacity:.9;line-height:1.7">Мы создаём будущее волонтёрства в Казахстане с помощью искусственного интеллекта, геймификации и сообщества единомышленников.</p>
+  </div>
+</section>
+
+<!-- Mission -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+      <div class="fade-up">
+        <h2 style="font-size:36px;font-weight:800;color:var(--dark-teal);margin-bottom:16px">Наша <span style="color:var(--orange)">миссия</span></h2>
+        <p style="color:var(--text-grey);font-size:15px;line-height:1.8;margin-bottom:16px">
+          VolunAI — это платформа нового поколения для волонтёров Казахстана. Мы верим, что технологии должны служить людям, а не наоборот.
+        </p>
+        <p style="color:var(--text-grey);font-size:15px;line-height:1.8;margin-bottom:24px">
+          С помощью искусственного интеллекта мы помогаем найти подходящие мероприятия, автоматически генерируем посты, проводим психологические консультации и создаём геймифицированную систему наград.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(232,98,42,.12);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">🎯</div>
+            <span style="font-size:14px;font-weight:600">Сделать волонтёрство доступным для каждого</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(38,166,154,.12);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">🤝</div>
+            <span style="font-size:14px;font-weight:600">Объединить организации, волонтёров и ИИ</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(232,98,42,.12);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">🌍</div>
+            <span style="font-size:14px;font-weight:600">Изменить Казахстан к лучшему вместе</span>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up" style="animation-delay:.2s">
+        <div style="background:linear-gradient(135deg,var(--light-bg),white);border-radius:24px;padding:36px;box-shadow:var(--card-shadow)">
+          <h3 style="font-size:20px;font-weight:800;margin-bottom:24px;color:var(--dark-teal)">Ключевые цифры</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+            <div style="text-align:center;padding:20px;background:white;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.06)">
+              <div style="font-size:36px;font-weight:900;color:var(--orange)">12K+</div>
+              <div style="font-size:12px;color:var(--text-grey)">Волонтёров</div>
+            </div>
+            <div style="text-align:center;padding:20px;background:white;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.06)">
+              <div style="font-size:36px;font-weight:900;color:var(--teal)">3.8K+</div>
+              <div style="font-size:12px;color:var(--text-grey)">Мероприятий</div>
+            </div>
+            <div style="text-align:center;padding:20px;background:white;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.06)">
+              <div style="font-size:36px;font-weight:900;color:var(--orange)">240+</div>
+              <div style="font-size:12px;color:var(--text-grey)">Организаций</div>
+            </div>
+            <div style="text-align:center;padding:20px;background:white;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.06)">
+              <div style="font-size:36px;font-weight:900;color:var(--teal)">95K+</div>
+              <div style="font-size:12px;color:var(--text-grey)">Часов помощи</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>Что делает нас <span>особенными</span></h2>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card fade-up">
+        <div class="feat-icon">🤖</div>
+        <h3>AI-технологии</h3>
+        <p>Наш ИИ анализирует фотографии загрязнений, генерирует посты, проводит психодиагностику и находит подходящие события для каждого пользователя.</p>
+      </div>
+      <div class="feat-card fade-up" style="animation-delay:.1s">
+        <div class="feat-icon">🗺️</div>
+        <h3>VolunGo — Геймификация</h3>
+        <p>Уникальная игровая карта с заданиями прямо на улице. Получай поинты за реальные добрые дела и соревнуйся с другими волонтёрами.</p>
+      </div>
+      <div class="feat-card fade-up" style="animation-delay:.2s">
+        <div class="feat-icon">🏫</div>
+        <h3>Сеть университетов</h3>
+        <p>Интеграция с ведущими университетами Казахстана: НУ, ЕНУ, КазНУ и другими. Присоединяйся к клубам своего университета.</p>
+      </div>
+      <div class="feat-card fade-up" style="animation-delay:.3s">
+        <div class="feat-icon">📊</div>
+        <h3>Прозрачная аналитика</h3>
+        <p>Каждый волонтёр видит свой вклад: часы, ивенты, пожертвования. Организации получают детальную аналитику по своим мероприятиям.</p>
+      </div>
+      <div class="feat-card fade-up" style="animation-delay:.4s">
+        <div class="feat-icon">🧠</div>
+        <h3>Психологическая забота</h3>
+        <p>Волонтёрство эмоционально непростое. Наш AI-психолог помогает определить состояние и рекомендует профессиональную помощь.</p>
+      </div>
+      <div class="feat-card fade-up" style="animation-delay:.5s">
+        <div class="feat-icon">🔔</div>
+        <h3>Умные уведомления</h3>
+        <p>Получай напоминания о мероприятиях, новые достижения, нотификации о новостях в регионе которые требуют волонтёрской помощи.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>Команда <span>SheCodes</span></h2>
+      <p>Проект создан в рамках хакатона SheCodes Kazakhstan</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:800px;margin:0 auto" class="fade-up">
+      <div style="text-align:center;padding:28px 20px;background:white;border-radius:16px;box-shadow:var(--card-shadow)">
+        <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--orange),#f5884d);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:28px;color:white">👩</div>
+        <div style="font-weight:800;font-size:15px;margin-bottom:4px">Разработчик</div>
+        <div style="font-size:12px;color:var(--text-grey)">Flutter & AI</div>
+      </div>
+      <div style="text-align:center;padding:28px 20px;background:white;border-radius:16px;box-shadow:var(--card-shadow)">
+        <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--light-teal));margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:28px;color:white">👩</div>
+        <div style="font-weight:800;font-size:15px;margin-bottom:4px">UX/UI Дизайнер</div>
+        <div style="font-size:12px;color:var(--text-grey)">Figma & Research</div>
+      </div>
+      <div style="text-align:center;padding:28px 20px;background:white;border-radius:16px;box-shadow:var(--card-shadow)">
+        <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--dark-teal),var(--teal));margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:28px;color:white">👩</div>
+        <div style="font-weight:800;font-size:15px;margin-bottom:4px">Product Manager</div>
+        <div style="font-size:12px;color:var(--text-grey)">Strategy & Vision</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Присоединяйся к нам! 🌍</h2>
+  <p>Стань частью движения VolunAI и помоги сделать Казахстан лучше</p>
+  <div class="cta-btns">
+    <button class="btn btn-white btn-lg" onclick="location.href='events.html'">📋 Найти мероприятие</button>
+    <button class="btn btn-ghost btn-lg" onclick="openModal('signupModal')">🚀 Зарегистрироваться</button>
+  </div>
+</section>
+
+<div class="overlay" id="loginModal">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    <h2>Войти</h2>
+    <div class="form-group"><label>Email</label><input type="text"/></div>
+    <div class="form-group"><label>Пароль</label><input type="password"/></div>
+    <button class="btn btn-primary" style="width:100%" onclick="closeModal('loginModal')">Войти</button>
+  </div>
+</div>
+<div class="overlay" id="signupModal">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closeModal('signupModal')">✕</button>
+    <h2>Регистрация</h2>
+    <div class="form-group"><label>Имя</label><input type="text"/></div>
+    <div class="form-group"><label>Email</label><input type="email"/></div>
+    <div class="form-group"><label>Пароль</label><input type="password"/></div>
+    <button class="btn btn-primary" style="width:100%" onclick="closeModal('signupModal')">Зарегистрироваться</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><h3>VOLUNAI</h3><p>Волонтёрская платформа на базе AI для Казахстана.</p></div>
+    <div class="footer-col"><h4>Платформа</h4><ul><li><a href="events.html">Мероприятия</a></li><li><a href="search.html">Поиск</a></li><li><a href="rating.html">Рейтинг</a></li></ul></div>
+    <div class="footer-col"><h4>Организациям</h4><ul><li>Регистрация</li><li>Создать событие</li><li>Аналитика</li></ul></div>
+    <div class="footer-col"><h4>Поддержка</h4><ul><li>О проекте</li><li>FAQ</li><li>Контакты</li></ul></div>
+  </div>
+  <div class="footer-bottom">© 2024 VolunAI — Сделано с ❤️ командой SheCodes.</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Посадка деревьев — VolunAI</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<nav class="navbar">
+  <a class="nav-logo" href="../index.html">
+    <svg class="nav-logo-svg" viewBox="0 0 44 44">
+      <circle cx="22" cy="22" r="20" fill="none" stroke="#1B5E52" stroke-width="3"/>
+      <path d="M22 2 A20 20 0 0 0 22 42 Z" fill="#26A69A"/>
+      <path d="M22 2 A20 20 0 0 1 22 42 Z" fill="#E8622A"/>
+      <line x1="22" y1="2" x2="22" y2="42" stroke="#1B5E52" stroke-width="2.5"/>
+      <ellipse cx="17" cy="24" rx="4" ry="7" fill="white" opacity="0.85"/>
+      <ellipse cx="27" cy="21" rx="4" ry="6" fill="white" opacity="0.85"/>
+    </svg>
+    <div><div class="nav-brand">VOLUNAI</div><div class="nav-sub">together</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Главная</a></li>
+    <li><a href="events.html" class="active">Мероприятия</a></li>
+    <li><a href="search.html">Поиск</a></li>
+    <li><a href="rating.html">Рейтинг</a></li>
+    <li><a href="about.html">О нас</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn btn-outline" onclick="openModal('loginModal')">Войти</button>
+    <button class="btn btn-primary">Регистрация</button>
+  </div>
+</nav>
+
+<section class="section" style="padding-top:40px">
+  <div class="container" style="max-width:900px">
+    <a href="events.html" style="color:var(--text-grey);font-size:13px;display:flex;align-items:center;gap:6px;margin-bottom:24px">
+      ← Назад к мероприятиям
+    </a>
+
+    <div style="display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:start">
+
+      <!-- Left: main info -->
+      <div>
+        <span style="background:var(--teal);color:white;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px">Субботник</span>
+        <h1 style="font-size:32px;font-weight:900;color:var(--dark-teal);margin:16px 0 12px;line-height:1.25">
+          Посадка деревьев для улучшения качества воздуха и создания зелёной зоны отдыха!
+        </h1>
+
+        <!-- Organizer -->
+        <div style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--light-bg);border-radius:12px;margin-bottom:24px">
+          <div style="width:44px;height:44px;border-radius:50%;background:var(--dark-teal);display:flex;align-items:center;justify-content:center;color:white;font-weight:700">V</div>
+          <div>
+            <div style="font-weight:700;font-size:14px">VolunAI Community</div>
+            <div style="font-size:12px;color:var(--text-grey)">Организатор · 5012 участников</div>
+          </div>
+          <button class="btn btn-teal" style="margin-left:auto;padding:8px 16px;font-size:12px">Подписаться</button>
+        </div>
+
+        <!-- Image -->
+        <div style="height:320px;background:linear-gradient(135deg,#4CAF50,#2E7D32);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:80px;margin-bottom:28px;position:relative;overflow:hidden">
+          🌳
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.4));padding:20px">
+            <span style="color:white;font-size:13px;font-weight:600">📍 Центральный парк, г.Астана</span>
+          </div>
+        </div>
+
+        <!-- Progress -->
+        <div style="background:white;border:1px solid var(--divider);border-radius:16px;padding:24px;margin-bottom:24px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+            <span style="font-weight:700;font-size:16px">Прогресс набора волонтёров</span>
+            <span style="font-size:22px;font-weight:900;color:var(--orange)">25/60</span>
+          </div>
+          <div class="progress-bar" style="height:12px;margin-bottom:8px">
+            <div class="progress-fill" style="width:42%"></div>
+          </div>
+          <div style="font-size:12px;color:var(--text-grey)">Занято 25 из 60 мест</div>
+
+          <!-- Volunteer avatars -->
+          <div style="display:flex;align-items:center;gap:8px;margin-top:16px">
+            <div style="display:flex">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--teal);border:2px solid white;margin-right:-8px;display:flex;align-items:center;justify-content:center;color:white;font-size:14px">👤</div>
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--orange);border:2px solid white;margin-right:-8px;display:flex;align-items:center;justify-content:center;color:white;font-size:14px">👤</div>
+              <div style="width:36px;height:36px;border-radius:50%;background:#9C27B0;border:2px solid white;display:flex;align-items:center;justify-content:center;color:white;font-size:14px">👤</div>
+            </div>
+            <span style="font-size:12px;color:var(--text-grey);margin-left:8px">и ещё 22 участника</span>
+            <button style="margin-left:auto;padding:6px 14px;border:1px solid var(--divider);border-radius:20px;background:white;font-size:12px;cursor:pointer;font-family:inherit">Волонтёры (21)</button>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div style="margin-bottom:24px">
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Описание</h3>
+          <p style="font-size:14px;color:var(--text-grey);line-height:1.7">
+            На данном участке городского парка необходима срочная посадка деревьев для улучшения качества воздуха и создания зелёной зоны отдыха для жителей Астаны. 
+            Мы планируем высадить более 60 деревьев различных пород, которые помогут улучшить экологическую обстановку в районе.
+          </p>
+          <p style="font-size:14px;color:var(--text-grey);line-height:1.7;margin-top:12px">
+            Рекомендуемая техника: перчатки, удобная одежда, вода. Инструменты для посадки будут предоставлены организаторами.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: sidebar -->
+      <div style="position:sticky;top:90px;display:flex;flex-direction:column;gap:16px">
+        <!-- Info card -->
+        <div style="background:white;border:1px solid var(--divider);border-radius:16px;padding:24px">
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:18px">Детали мероприятия</h3>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <span style="font-size:20px">📍</span>
+              <div>
+                <div style="font-size:12px;color:var(--text-grey)">Место</div>
+                <div style="font-size:14px;font-weight:600">Центральный парк, г.Астана</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <span style="font-size:20px">📅</span>
+              <div>
+                <div style="font-size:12px;color:var(--text-grey)">Дата и время</div>
+                <div style="font-size:14px;font-weight:600">Сб, 16 Июля, 2024<br>9:00 — 14:00</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <span style="font-size:20px">👥</span>
+              <div>
+                <div style="font-size:12px;color:var(--text-grey)">Волонтёров нужно</div>
+                <div style="font-size:14px;font-weight:600">60 человек (25 уже записались)</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <span style="font-size:20px">🏆</span>
+              <div>
+                <div style="font-size:12px;color:var(--text-grey)">Награда за участие</div>
+                <div style="font-size:14px;font-weight:600;color:var(--orange)">+50 поинтов</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Join button -->
+        <button class="btn btn-primary btn-lg" style="width:100%;padding:18px;font-size:16px" onclick="openModal('joinModal')">
+          ✅ Присоединиться
+        </button>
+        <button class="btn btn-outline" style="width:100%;padding:14px">
+          🔔 Напомнить мне
+        </button>
+        <button class="btn" style="width:100%;padding:14px;background:var(--light-bg);color:var(--text-grey)">
+          📤 Поделиться
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN MODAL -->
+<div class="overlay" id="joinModal">
+  <div class="modal" style="position:relative;text-align:center">
+    <button class="modal-close" onclick="closeModal('joinModal')">✕</button>
+    <div style="font-size:48px;margin-bottom:16px">🎉</div>
+    <h2 style="color:var(--dark-teal)">Отлично!</h2>
+    <p style="color:var(--text-grey);margin-bottom:24px">Ты успешно записался на мероприятие «Посадка деревьев». Увидимся 16 июля!</p>
+    <div style="background:var(--light-bg);border-radius:12px;padding:16px;margin-bottom:24px">
+      <div style="font-size:24px;font-weight:900;color:var(--orange)">+50 поинтов</div>
+      <div style="font-size:13px;color:var(--text-grey)">будут начислены после мероприятия</div>
+    </div>
+    <button class="btn btn-primary" style="width:100%" onclick="closeModal('joinModal')">Понятно!</button>
+  </div>
+</div>
+
+<div class="overlay" id="loginModal">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    <h2>Войти</h2>
+    <div class="form-group"><label>Email</label><input type="text"/></div>
+    <div class="form-group"><label>Пароль</label><input type="password"/></div>
+    <button class="btn btn-primary" style="width:100%" onclick="closeModal('loginModal')">Войти</button>
+  </div>
+</div>
+
+<footer class="footer" style="padding:30px 40px">
+  <div class="footer-bottom" style="border:none;padding:0">© 2024 VolunAI — Сделано с ❤️ командой SheCodes.</div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

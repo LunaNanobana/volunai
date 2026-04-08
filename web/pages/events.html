@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Мероприятия — VolunAI</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<nav class="navbar">
+  <a class="nav-logo" href="../index.html">
+    <svg class="nav-logo-svg" viewBox="0 0 44 44">
+      <circle cx="22" cy="22" r="20" fill="none" stroke="#1B5E52" stroke-width="3"/>
+      <path d="M22 2 A20 20 0 0 0 22 42 Z" fill="#26A69A"/>
+      <path d="M22 2 A20 20 0 0 1 22 42 Z" fill="#E8622A"/>
+      <line x1="22" y1="2" x2="22" y2="42" stroke="#1B5E52" stroke-width="2.5"/>
+      <ellipse cx="17" cy="24" rx="4" ry="7" fill="white" opacity="0.85"/>
+      <ellipse cx="27" cy="21" rx="4" ry="6" fill="white" opacity="0.85"/>
+    </svg>
+    <div><div class="nav-brand">VOLUNAI</div><div class="nav-sub">together</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Главная</a></li>
+    <li><a href="events.html" class="active">Мероприятия</a></li>
+    <li><a href="search.html">Поиск</a></li>
+    <li><a href="rating.html">Рейтинг</a></li>
+    <li><a href="about.html">О нас</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn btn-outline" onclick="openModal('loginModal')">Войти</button>
+    <button class="btn btn-primary" onclick="openModal('signupModal')">Регистрация</button>
+  </div>
+</nav>
+
+<div class="page-hd">
+  <h1>🗓️ Мероприятия</h1>
+  <p>Найди событие, которое изменит жизнь — свою и других</p>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Search + filter bar -->
+    <div style="display:flex;gap:14px;margin-bottom:32px;flex-wrap:wrap;" class="fade-up">
+      <input id="searchInput" type="text" placeholder="🔍 Поиск по названию..." oninput="filterAll()"
+        style="flex:1;min-width:220px;padding:12px 18px;border:1.5px solid var(--divider);border-radius:30px;font-size:14px;font-family:inherit;outline:none;transition:border-color .2s"
+        onfocus="this.style.borderColor='var(--orange)'" onblur="this.style.borderColor='var(--divider)'"/>
+      <select id="catFilter" onchange="filterAll()"
+        style="padding:12px 18px;border:1.5px solid var(--divider);border-radius:30px;font-size:13px;font-family:inherit;outline:none;background:white;cursor:pointer">
+        <option value="">Все категории</option>
+        <option value="ecology">Субботники</option>
+        <option value="animals">Животные</option>
+        <option value="education">Образование</option>
+        <option value="health">Здоровье</option>
+        <option value="children">Детдом</option>
+        <option value="climate">Климат</option>
+        <option value="other">Другое</option>
+      </select>
+      <select id="cityFilter" onchange="filterAll()"
+        style="padding:12px 18px;border:1.5px solid var(--divider);border-radius:30px;font-size:13px;font-family:inherit;outline:none;background:white;cursor:pointer">
+        <option value="">Все города</option>
+        <option value="astana">Астана</option>
+        <option value="almaty">Алматы</option>
+        <option value="other">Другие</option>
+      </select>
+      <button class="btn btn-primary" onclick="openModal('addEventModal')">+ Создать событие</button>
+    </div>
+
+    <!-- Category chips -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px" class="fade-up">
+      <button class="cat-chip active" onclick="setChip(this,'')">Все</button>
+      <button class="cat-chip" onclick="setChip(this,'ecology')">🌳 Субботники</button>
+      <button class="cat-chip" onclick="setChip(this,'animals')">🐾 Животные</button>
+      <button class="cat-chip" onclick="setChip(this,'education')">📚 Образование</button>
+      <button class="cat-chip" onclick="setChip(this,'health')">💙 Здоровье</button>
+      <button class="cat-chip" onclick="setChip(this,'children')">🧒 Детдом</button>
+      <button class="cat-chip" onclick="setChip(this,'climate')">🌤️ Климат</button>
+    </div>
+
+    <style>
+      .cat-chip{padding:8px 18px;border-radius:20px;border:1.5px solid var(--divider);background:white;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;}
+      .cat-chip.active,.cat-chip:hover{background:var(--orange);color:white;border-color:var(--orange);}
+    </style>
+
+    <!-- Events grid -->
+    <div class="events-grid" id="eventsGrid">
+
+      <div class="event-card fade-up" data-category="ecology" data-city="astana" data-title="загрязненное озеро требует очистки" onclick="location.href='event-detail.html'">
+        <div class="ev-img" style="background:#78909C">🌊<span class="ev-tag">Субботник</span></div>
+        <div class="ev-body">
+          <div class="ev-organizer"><div class="ev-avatar">E</div><span class="ev-org-name">Eco_Life</span></div>
+          <div class="ev-title">Загрязненное озеро требует очистки!</div>
+          <div class="ev-volunteers">Требуется Волонтеров — 100</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+          <div class="ev-meta"><span>📍 Г.Астана, р.Нура — оз.Талдыколь</span><span>📅 14.09.2024 | 9:00–14:00</span></div>
+          <button class="btn btn-primary" style="width:100%;margin-top:12px;padding:10px">Присоединиться</button>
+        </div>
+      </div>
+
+      <div class="event-card fade-up" data-category="ecology" data-city="astana" data-title="посадка деревьев городской парк" onclick="location.href='event-detail.html'">
+        <div class="ev-img" style="background:#4CAF50">🌳<span class="ev-tag">Субботник</span></div>
+        <div class="ev-body">
+          <div class="ev-organizer"><div class="ev-avatar" style="background:var(--dark-teal)">V</div><span class="ev-org-name">VolunAI</span></div>
+          <div class="ev-title">Посадка деревьев для улучшения качества воздуха!</div>
+          <div class="ev-volunteers">Требуется Волонтеров — 60</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:42%"></div></div>
+          <div class="ev-meta"><span>📍 Центральный парк, г.Астана</span><span>📅 16.07.2024 | 9:00–14:00</span></div>
+          <button class="btn btn-primary" style="width:100%;margin-top:12px;padding:10px">Присоединиться</button>
+        </div>
+      </div>
+
+      <div class="event-card fade-up" data-category="animals" data-city="astana" data-title="ищем дом для собаки" onclick="location.href='event-detail.html'">
+        <div class="ev-img" style="background:#8D6E63">🐾<span class="ev-tag">Животные</span></div>
+        <div class="ev-body">
+          <div class="ev-organizer"><div class="ev-avatar" style="background:#8D6E63">P</div><span class="ev-org-name">Pet.lover</span></div>
+          <div class="ev-title">Ищем Дом для Собаки!</div>
+          <div class="ev-volunteers">Требуется Волонтер — 1</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+          <div class="ev-meta"><span>📍 Г.Астана, р.Есиль</span><span>📅 15.09.2024 | 12:00</span></div>
+          <button class="btn btn-primary" style="width:100%;margin-top:12px;padding:10px">Присоединиться</button>
+        </div>
+      </div>
+
+      <div class="event-card fade-up" data-category="other" data-city="other" data-title="помощь подтопленные зоны" onclick="location.href='event-detail.html'">
+        <div class="ev-img" style="background:#546E7A">🌊<span class="ev-tag">Помощь</span></div>
+        <div class="ev-body">
+          <div class="ev-organizer"><div class="ev-avatar" style="background:var(--orange)">AI</div><span class="ev-org-name">VolunAI</span></div>
+          <div class="ev-title">Помощь людям в подтопленных зонах</div>
+          <div class="ev-volunteers">Требуется Волонтеров — 40</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:63%"></div></div>
+          <div class="ev-meta"><span>📍 Павлодарская область</span><span>📅 14.09.2024 | 9:00–14:00</span></div>
+          <button class="btn btn-primary" style="width:100%;margin-top:12px;padding:10px">Присоединиться</button>
+        </div>
+      </div>
+
+      <div class="event-card fade-up" data-category="education" data-city="almaty" data-title="обсуждение книги аве мария" onclick="location.href='event-detail.html'">
+        <div class="ev-img" style="background:#4A148C">📖<span class="ev-tag">Книги</span></div>
+        <div class="ev-body">
+          <div class="ev-organizer"><div class="ev-avatar" style="background:var(--orange)">AI</div><span class="ev-org-name">VolunAI</span></div>
+          <div class="ev-title">Обсуждение книги «Проект "Аве Мария"»</div>
+          <div class="ev-volunteers">Участников — 20</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
+          <div class="ev-meta"><span>📍 Г.Алматы, кафе "Took"</span><span>📅 14.09.2024 | 9:00–14:00</span></div>
+          <button class="btn btn-primary" style="width:100%;margin-top:12px;padding:10px">Присоединиться</button>
+        </div>
+      </div>
+
+      <div class="event-card fade-up" data-category="children" data-city="astana" data-title="борьба торговля детьми казахстан" onclick="location.href='event-detail.html'">
+        <div class="ev-img" style="background:#1565C0">🤝<span class="ev-tag">Права</span></div>
+        <div class="ev-body">
+          <div class="ev-organizer"><div class="ev-avatar" style="background:#1565C0">АЖ</div><span class="ev-org-name">Астана жастары</span></div>
+          <div class="ev-title">Действия Казахстана по борьбе с торговлей детьми</div>
+          <div class="ev-volunteers">Требуется Волонтер — 45</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
+          <div class="ev-meta"><span>📍 Г.Астана, р.Есиль</span><span>📅 15.09.2024 | 12:00</span></div>
+          <button class="btn btn-primary" style="width:100%;margin-top:12px;padding:10px">Присоединиться</button>
+        </div>
+      </div>
+
+      <div class="event-card fade-up" data-category="health" data-city="astana" data-title="тревожные расстройства инфосессия" onclick="location.href='event-detail.html'">
+        <div class="ev-img" style="background:#1565C0">🧠<span class="ev-tag">Психология</span></div>
+        <div class="ev-body">
+          <div class="ev-organizer"><div class="ev-avatar" style="background:#7B1FA2">SS</div><span class="ev-org-name">Socially Strong</span></div>
+          <div class="ev-title">Инфосессия насчет темы "Тревожные расстройства"</div>
+          <div class="ev-volunteers">Участников — 30</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+          <div class="ev-meta"><span>📍 г.Астана</span><span>📅 20.09.2024 | 14:00–16:00</span></div>
+          <button class="btn btn-primary" style="width:100%;margin-top:12px;padding:10px">Присоединиться</button>
+        </div>
+      </div>
+
+      <div class="event-card fade-up" data-category="climate" data-city="astana" data-title="субботник уборка парк климат" onclick="location.href='event-detail.html'">
+        <div class="ev-img" style="background:#2E7D32">🌍<span class="ev-tag">Климат</span></div>
+        <div class="ev-body">
+          <div class="ev-organizer"><div class="ev-avatar" style="background:#2E7D32">G</div><span class="ev-org-name">GreenAstana</span></div>
+          <div class="ev-title">Субботник: уборка и озеленение района</div>
+          <div class="ev-volunteers">Требуется Волонтеров — 50</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div>
+          <div class="ev-meta"><span>📍 Г.Астана, Алматинский район</span><span>📅 21.09.2024 | 10:00–13:00</span></div>
+          <button class="btn btn-primary" style="width:100%;margin-top:12px;padding:10px">Присоединиться</button>
+        </div>
+      </div>
+
+      <div class="event-card fade-up" data-category="children" data-city="astana" data-title="детдом подарки праздник" onclick="location.href='event-detail.html'">
+        <div class="ev-img" style="background:#FF8F00">🎁<span class="ev-tag">Детдом</span></div>
+        <div class="ev-body">
+          <div class="ev-organizer"><div class="ev-avatar" style="background:#FF8F00">K</div><span class="ev-org-name">KazVolunteer</span></div>
+          <div class="ev-title">Праздник для детей детского дома</div>
+          <div class="ev-volunteers">Требуется Волонтеров — 15</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
+          <div class="ev-meta"><span>📍 Г.Астана, Детдом №3</span><span>📅 22.09.2024 | 12:00–17:00</span></div>
+          <button class="btn btn-primary" style="width:100%;margin-top:12px;padding:10px">Присоединиться</button>
+        </div>
+      </div>
+
+    </div>
+    <!-- No results message -->
+    <div id="noResults" style="display:none;text-align:center;padding:60px;color:var(--text-grey)">
+      <div style="font-size:48px;margin-bottom:16px">🔍</div>
+      <h3>Ничего не найдено</h3>
+      <p>Попробуй изменить фильтры или поисковый запрос</p>
+    </div>
+  </div>
+</section>
+
+<!-- ADD EVENT MODAL -->
+<div class="overlay" id="addEventModal">
+  <div class="modal" style="position:relative;max-width:560px">
+    <button class="modal-close" onclick="closeModal('addEventModal')">✕</button>
+    <h2>Создать мероприятие</h2>
+    <div class="form-group"><label>Название</label><input type="text" placeholder="Название вашего события"/></div>
+    <div class="form-group"><label>Описание</label><textarea rows="3" placeholder="Расскажите о мероприятии..."></textarea></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div class="form-group"><label>Категория</label>
+        <select><option>Субботник</option><option>Животные</option><option>Образование</option><option>Здоровье</option><option>Климат</option><option>Детдом</option><option>Другое</option></select>
+      </div>
+      <div class="form-group"><label>Нужно волонтёров</label><input type="number" placeholder="100"/></div>
+    </div>
+    <div class="form-group"><label>Место</label><input type="text" placeholder="Город, адрес"/></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div class="form-group"><label>Дата</label><input type="date"/></div>
+      <div class="form-group"><label>Время</label><input type="time"/></div>
+    </div>
+    <div class="form-group"><label>Фото события (необязательно)</label><input type="file" accept="image/*"/></div>
+    <div style="display:flex;gap:12px;margin-top:8px">
+      <button class="btn btn-primary" style="flex:1" onclick="closeModal('addEventModal')">🤖 Сгенерировать с AI</button>
+      <button class="btn btn-outline" style="flex:1" onclick="closeModal('addEventModal')">Опубликовать</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN / SIGNUP MODALS (reused) -->
+<div class="overlay" id="loginModal">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    <h2>Войти в VolunAI</h2>
+    <div class="form-group"><label>Email или username</label><input type="text" placeholder="Email или username"/></div>
+    <div class="form-group"><label>Пароль</label><input type="password" placeholder="Пароль"/></div>
+    <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="closeModal('loginModal')">Войти</button>
+  </div>
+</div>
+<div class="overlay" id="signupModal">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closeModal('signupModal')">✕</button>
+    <h2>Регистрация</h2>
+    <div class="form-group"><label>Полное имя</label><input type="text"/></div>
+    <div class="form-group"><label>Email</label><input type="email"/></div>
+    <div class="form-group"><label>Пароль</label><input type="password"/></div>
+    <div class="form-group"><label>Вы являетесь:</label>
+      <select><option>Пользователь / Волонтёр</option><option>Организатор</option></select>
+    </div>
+    <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="closeModal('signupModal')">Зарегистрироваться</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><h3>VOLUNAI</h3><p>Волонтёрская платформа на базе AI для Казахстана.</p></div>
+    <div class="footer-col"><h4>Платформа</h4><ul><li><a href="events.html">Мероприятия</a></li><li><a href="search.html">Поиск</a></li><li><a href="rating.html">Рейтинг</a></li></ul></div>
+    <div class="footer-col"><h4>Организациям</h4><ul><li>Регистрация</li><li>Создать событие</li><li>Аналитика</li></ul></div>
+    <div class="footer-col"><h4>Поддержка</h4><ul><li><a href="about.html">О проекте</a></li><li>FAQ</li><li>Контакты</li></ul></div>
+  </div>
+  <div class="footer-bottom">© 2024 VolunAI — Сделано с ❤️ командой SheCodes.</div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+let currentCat = '';
+
+function setChip(el, cat) {
+  document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  currentCat = cat;
+  document.getElementById('catFilter').value = cat;
+  filterAll();
+}
+
+function filterAll() {
+  const query = document.getElementById('searchInput').value.toLowerCase();
+  const cat = document.getElementById('catFilter').value || currentCat;
+  const city = document.getElementById('cityFilter').value;
+  let visible = 0;
+  document.querySelectorAll('#eventsGrid .event-card').forEach(card => {
+    const matchCat = !cat || card.dataset.category === cat;
+    const matchCity = !city || card.dataset.city === city;
+    const matchTitle = !query || card.dataset.title.includes(query);
+    const show = matchCat && matchCity && matchTitle;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  document.getElementById('noResults').style.display = visible === 0 ? '' : 'none';
+}
+</script>
+</body>
+</html>
